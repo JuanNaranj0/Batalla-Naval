@@ -1,0 +1,27 @@
+# Archivos de configuración del editor
+/.vscode/
+/.idea/
+
+# Archivos de caché y sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de compilación y dependencias
+/node_modules/
+/dist/
+/build/
+
+# Archivos de paquetes
+package-lock.json
+yarn.lock
+
+# Archivos generados
+*.log
+*.swp
+*.swo
+
+# Evitar subir configuraciones locales
+.env
+
+# Archivos de depuración
+*.stacktrace
