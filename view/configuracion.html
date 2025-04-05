@@ -18,7 +18,15 @@
         <input type="text" id="nombre" name="nickname" placeholder="Escribe tu nickname">
 
         <label for="nacionalidad">País:</label>
-        <input type="text" id="nacionalidad" name="pais" placeholder="Escribe tu país">
+        <input type="text" id="nacionalidad" name="pais" placeholder="Escribe tu país" list="lista-paises">
+        <datalist id="lista-paises"></datalist>
+
+
+        <label for="ciudad">Ciudad:</label>
+        <input type="text" id="ciudad" name="ciudad" placeholder="Escribe tu ciudad" list="lista-ciudades">
+        <datalist id="lista-ciudades"></datalist>
+
+
 
         <div class="buttons">
             <button id="jugar" onclick="window.location.href='Posicionamiento.html'">Continuar</button>

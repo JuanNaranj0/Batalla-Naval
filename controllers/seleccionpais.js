@@ -1,53 +1,98 @@
 import CONFIG from "../config.js";
 
+const CITY_LIST_PATH = "../city.list.json";
+
 document.addEventListener("DOMContentLoaded", async () => {
     const countryInput = document.getElementById("nacionalidad");
+    const countryList = document.getElementById("lista-paises");
+    const cityInput = document.getElementById("ciudad");
+    const cityList = document.getElementById("lista-ciudades");
     const playButton = document.getElementById("jugar");
+
     let countryMap = {};
+    let cityData = [];
 
     try {
-        const response = await fetch(CONFIG.API_COUNTRIES);
-        if (!response.ok) throw new Error("Error al obtener países");
+        // Cargar países
+        const countriesResponse = await fetch(CONFIG.API_COUNTRIES);
+        const countriesArray = await countriesResponse.json();
 
-        const countriesArray = await response.json();
-
-        // Crear un mapa de países para buscar por nombre
         countriesArray.forEach(countryObj => {
-            const code = Object.keys(countryObj)[0].toLowerCase(); // Código del país en minúsculas
-            const name = countryObj[code].toLowerCase(); // Nombre del país en minúsculas
-            countryMap[name] = code; // Relaciona el nombre con su código
+            const code = Object.keys(countryObj)[0].toLowerCase();
+            const name = countryObj[code].toLowerCase();
+            countryMap[name] = code;
+
+            const option = document.createElement("option");
+            option.value = countryObj[code]; // Nombre visible
+            countryList.appendChild(option);
         });
 
-        console.log("Mapa de países cargado correctamente:", countryMap);
+        console.log("✅ Países cargados:", Object.keys(countryMap).length);
+
+        // Cargar ciudades
+        const citiesResponse = await fetch(CITY_LIST_PATH);
+        cityData = await citiesResponse.json();
+        console.log("🏙️ Ciudades cargadas:", cityData.length);
     } catch (error) {
-        console.error("Error cargando países:", error);
+        console.error("❌ Error cargando datos:", error);
     }
 
-    // Guardar datos antes de jugar
+    // Actualizar ciudades cuando el país cambie
+    countryInput.addEventListener("input", () => {
+        const countryName = countryInput.value.trim().toLowerCase();
+        const countryCode = countryMap[countryName];
+
+        cityList.innerHTML = "";
+
+        if (!countryCode) {
+            console.warn("❌ País no válido o no reconocido:", countryName);
+            return;
+        }
+
+        const ciudadesFiltradas = cityData
+            .filter(ciudad => ciudad.country.toLowerCase() === countryCode)
+            .slice(0, 200); // limitar sugerencias
+
+        ciudadesFiltradas.forEach(ciudad => {
+            const option = document.createElement("option");
+            option.value = ciudad.name;
+            cityList.appendChild(option);
+        });
+
+        console.log(`🌍 Ciudades para ${countryName}:`, ciudadesFiltradas.length);
+    });
+
+    // Guardar datos al hacer clic
     playButton.addEventListener("click", () => {
         const nickname = document.getElementById("nombre").value.trim();
-        const countryName = countryInput.value.trim().toLowerCase(); // Convertir a minúsculas
-        const boardSize = document.getElementById("tamanio").value.trim();
+        const countryName = countryInput.value.trim().toLowerCase();
+        const boardSize = document.getElementById("tamanio")?.value?.trim() || "10";
 
-        if (!nickname || !countryName || !boardSize) {
+        const citySelect = document.getElementById("ciudad");
+        const selectedCity = citySelect.value.trim();
+
+        if (!nickname || !countryName || !selectedCity) {
             alert("Por favor, completa todos los campos.");
             return;
         }
 
-        // Buscar el código del país basado en el nombre ingresado
-        const countryCode = countryMap[countryName] || "desconocido"; // Si no existe, asigna "desconocido"
+        const countryCode = countryMap[countryName];
+        if (!countryCode) {
+            alert("El país ingresado no es válido.");
+            return;
+        }
 
-        // Guardar temporalmente en LocalStorage (se enviará al backend después)
         const playerData = {
             nick_name: nickname,
-            score: 0, // Se actualizará después del juego
+            score: 0,
             country_code: countryCode,
+            city_name: selectedCity, // 👈 ciudad seleccionada del <select>
             board_size: boardSize,
             date: new Date().toLocaleString()
         };
 
         localStorage.setItem("playerData", JSON.stringify(playerData));
-
-        console.log("Datos guardados:", playerData);
+        console.log("✅ Datos guardados en localStorage:", playerData);
     });
+
 });
