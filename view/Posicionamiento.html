@@ -9,38 +9,45 @@
 </head>
 
 <body>
-    <h1>Tablero de Posicionamiento</h1>
+    <h1>TABLERO DE POSICIONAMIENTO</h1>
+
+    <div class="configuracion">
+        <label for="dimension">Selecciona el tamaño del tablero:</label>
+        <select id="dimension">
+            <option value="10">10x10</option>
+            <option value="11">11x11</option>
+            <option value="12">12x12</option>
+            <option value="13">13x13</option>
+            <option value="14">14x14</option>
+            <option value="15">15x15</option>
+            <option value="16">16x16</option>
+            <option value="17">17x17</option>
+            <option value="18">18x18</option>
+            <option value="19">19x19</option>
+            <option value="20">20x20</option>
+        </select>
+        <button id="generateBoard">Generar Tablero</button>
+    </div>
 
     <div class="container">
-        <!-- Sección de barcos a la izquierda -->
-        <div class="barcos">
+        <div class="ships">
             <h2>Barcos</h2>
-            <div class="barco barco-1" draggable="true" data-size="1"></div>
-            <div class="barco barco-2" draggable="true" data-size="2"></div>
-            <div class="barco barco-3" draggable="true" data-size="3"></div>
-            <div class="barco barco-4" draggable="true" data-size="4"></div>
-            <div class="barco barco-5" draggable="true" data-size="5"></div>
+            <div id="shipsContainer"></div>
         </div>
 
-        <!-- Tablero de posicionamiento con coordenadas -->
-        <div class="tablero-container">
-            <div class="coordenadas-top"></div>
-            <div class="tablero"></div>
-            <div class="coordenadas-left"></div>
-        </div>
+        <div id="board" class="board"></div>
 
-        <!-- Botones de acción -->
-        <div class="controles">
-            <button id="btn-rotar">Rotar</button>
-            <button id="btn-trasladar">Trasladar</button>
+        <div class="controls">
+            <button id="rotate">Rotar</button>
         </div>
     </div>
-    <div class="botones-inferiores">
-        <button id="btn-volver">Volver</button>
-        <button id="btn-iniciar-batalla">Iniciar batalla</button>
+
+    <div class="buttons">
+        <button id="previous" onclick="window.location.href='configuracion.html'">Anterior</button>
+        <button id="startBattle" onclick="window.location.href='Partida.html'">Iniciar Batalla</button>
     </div>
 
-    <script src="Posicionamiento.js"></script>
+    <script src="../controllers/Posicionamiento.js"></script>
 </body>
 
 </html>

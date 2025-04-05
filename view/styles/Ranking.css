@@ -1,0 +1,83 @@
+body {
+    font-family: 'Times New Roman',Times,serif;
+    text-align: center;
+    background: url('Ranking.gif') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+table {
+    width: 70%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);opacity: 0.8;
+}
+
+th,
+td {
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 1.1em;
+}
+
+th {
+    background: linear-gradient(135deg, #ffcc00, #ff6600);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+td {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+tbody tr:nth-child(even) td {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+tbody tr:hover td {
+    background: rgba(255, 255, 255, 0.3);
+    transition: background 0.3s ease;
+}
+
+/* Botón estilizado */
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background: linear-gradient(135deg, #ff6600, #ff3300);opacity: 0.8;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(255, 99, 71, 0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-family: 'Times New Roman', Times, serif;
+    text-shadow: 6px 6px 8px rgba(0, 0, 0, 0.5);
+}
+
+.back-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(255, 99, 71, 0.8);
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batalla Naval</title>
+    <link rel="stylesheet" href="styles/Partida.css">
+    <script type="module" src="../controllers/Partida.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Batalla Naval</h1>
+        <div class="boards">
+            <div class="board-container">
+                <h2>Tu Tablero</h2>
+                <div id="player-board" class="board"></div>
+            </div>
+            <div class="board-container">
+                <h2>Tablero del Oponente</h2>
+                <div id="opponent-board" class="board"></div>
+            </div>
+        </div>
+        <button id="attack-button">Atacar</button>
+        <div class="buttons-container">
+            <button id="reset-button">Reiniciar partida</button>
+            <button id="home-button" onclick="window.location.href='menuinicial.html'">Volver al inicio</button>
+        </div>
+    </div>
+</body>
+
+</html>
