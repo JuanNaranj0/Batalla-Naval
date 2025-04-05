@@ -1,4 +1,4 @@
-.titulo{
+.titulo {
     text: size 100px;
     font: bold;
     font-family: 'Times New Roman', Times, serif;
@@ -40,7 +40,7 @@ label {
     margin-top: 10px;
 }
 
-select{
+select {
     width: 80%;
     padding: 10px;
     margin-top: 5px;
@@ -48,6 +48,7 @@ select{
     border: 1px solid #ccc;
     font-family: 'Times New Roman', Times, serif;
 }
+
 input {
     width: 80%;
     padding: 10px;
@@ -60,20 +61,16 @@ input {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-    /* Coloca los botones en columna */
     gap: 1px;
-    /* Espacio entre los botones */
     align-items: center;
-    /* Centra los botones horizontalmente */
     width: 100%;
-    /* Asegura que ocupen todo el ancho del contenedor */
 }
 
 button {
     display: flex;
-    flex-direction: column;/* Coloca los botones en columna */
-    gap: 5px;/* Espacio entre los botones */
-    align-items: center;/* Centra los botones horizontalmente */
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
     background-color: #b78637;
     color: white;
     border: none;
@@ -89,4 +86,110 @@ button {
 
 button:hover {
     background-color: #775019;
+}
+
+/* === ESTILOS RESPONSIVOS === */
+@media (max-width: 1024px) {
+    .container {
+        width: 60%;
+    }
+
+    button {
+        width: 40%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 80%;
+        padding: 15px;
+    }
+
+    button {
+        width: 60%;
+    }
+
+    input,
+    select {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .titulo {
+        font-size: 28px;
+    }
+
+    button {
+        width: 80%;
+        font-size: 14px;
+    }
+
+    input,
+    select {
+        width: 95%;
+    }
+}
+
+/* === Animación de fondo sutil (opcional) === */
+@keyframes fondoAnimado {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body {
+    background-size: 200% 200%;
+    animation: fondoAnimado 20s ease infinite;
+}
+
+/* === Ajustes responsive para el título === */
+@media (max-width: 768px) {
+    .titulo {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .titulo {
+        font-size: 26px;
+    }
+}
+
+/* === Animación de fondo sutil (opcional) === */
+@keyframes fondoAnimado {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+body {
+    background-size: 200% 200%;
+    animation: fondoAnimado 20s ease infinite;
+}
+
+/* === Ajustes responsive para el título === */
+@media (max-width: 768px) {
+    .titulo {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .titulo {
+        font-size: 26px;
+    }
 }

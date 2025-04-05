@@ -36,14 +36,21 @@ document.addEventListener("DOMContentLoaded", () => {
     function resetShips() {
         shipsContainer.innerHTML = "";
         placedShips = [];
-        const shipSizes = [2, 3, 4, 5, 6];
+
+        const shipSizes = [5, 4, 3, 3, 2, 2];
+
         shipSizes.forEach(size => {
             const ship = document.createElement("div");
             ship.classList.add("ship", "horizontal");
             ship.dataset.size = size;
             ship.draggable = true;
-            ship.style.width = `${size * 30}px`;
-            ship.style.height = "30px";
+
+            for (let i = 0; i < size; i++) {
+                const cell = document.createElement("div");
+                cell.classList.add("ship-cell");
+                ship.appendChild(cell);
+            }
+
             shipsContainer.appendChild(ship);
             addDragListeners(ship);
         });
@@ -142,10 +149,18 @@ document.addEventListener("DOMContentLoaded", () => {
             shipsData.push({ row, col, size, isVertical });
         });
 
+        const boardSize = parseInt(dimensionSelect.value);
+        localStorage.setItem("playerBoardSize", boardSize);
         localStorage.setItem("playerShips", JSON.stringify(shipsData));
+
         alert("¡Batalla iniciada! Tu configuración se ha guardado.");
+        window.location.href = "Partida.html";
     });
 
+    // Si ya hay una dimensión seleccionada, generar el tablero automáticamente
+    if (dimensionSelect.value) {
+        createBoard(parseInt(dimensionSelect.value));
+    }
 
     resetShips();
 });

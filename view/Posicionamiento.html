@@ -48,6 +48,76 @@
     </div>
 
     <script src="../controllers/Posicionamiento.js"></script>
+
+    <!-- Estilos responsivos -->
+    <style>
+        @media (max-width: 1024px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .ships,
+            .board,
+            .controls {
+                width: 100%;
+                max-width: 90vw;
+            }
+
+            .board {
+                overflow-x: auto;
+            }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 22px;
+                text-align: center;
+            }
+
+            .configuracion {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .configuracion label,
+            .configuracion select,
+            .configuracion button {
+                width: 90%;
+                max-width: 300px;
+            }
+
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .buttons button {
+                width: 80%;
+                max-width: 250px;
+            }
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+    </style>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-.titulo{
+.titulo {
     text: size 100px;
     font: bold;
     font-family: 'Times New Roman', Times, serif;
@@ -53,4 +53,54 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+/* ----------- Estilos Responsivos ----------- */
+@media (max-width: 1024px) {
+    .container {
+        width: 60%;
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 80%;
+        height: auto;
+        padding: 15px;
+        margin: 30px auto;
+    }
+
+    .instructions {
+        font-size: 16px;
+    }
+
+    button {
+        width: 100%;
+        font-size: 15px;
+    }
+
+    .titulo {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 90%;
+        height: auto;
+        padding: 15px;
+    }
+
+    .instructions {
+        font-size: 15px;
+    }
+
+    .titulo {
+        font-size: 24px;
+    }
+
+    button {
+        font-size: 14px;
+    }
 }
