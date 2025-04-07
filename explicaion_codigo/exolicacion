@@ -1,0 +1,73 @@
+Esructura basica: 
+    view/menuinicial.html
+        contiene:
+            -estilos para la pagina y las opciones para ir a otro lado
+            1.boton para iniciar juego linea 29
+            2.boton para ver instrucciones linea 30
+            3.boton para salir linea 31
+    fin view/menuinicial.html
+
+    view/configuracion.html
+        contiene:
+            -linea del 5-10: COnfiguracion y recursos del documento
+
+            -linea 12-35: llenamos el formulario y nos da opciones de jugar o de volver al inicio etc, al presionar seguir o jugar nos manda paraa el posicionamiento.html
+    fin view/configuracion.html
+
+    view/posicionamiento.html
+
+        depende del controllers/posicisonamiento.js linea 8
+
+        contiene: 
+            linea: 5-10, configuracion del documento
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. Creacion del tablero variable: createBoard
+
+    archivo: controllers/partida.js linea: 24
+    y archivo: controllers/ Posicionamiento linea 53 (version prepartida)
+
+2. Eventos Drag(inicio, fin , drop, etc)
+
+    archivo: controllers/posicionamiento.js linea: 155, 160, 167, 179, 186
+
+3. Ubicar barcos aleatorios de la IA 
+
+    archivo: controllers/partida.js linea: 87, 300
+
+4. Disparo de la IA y activacion del modo killer
+
+    archivo: controllers/partida.js linea: 172, 283 
+
+5. modo killer basico/ killler avanzado
+
+    basico archivo : controllers/ partida funcion enemyAttack linea 172
+
+
+
+Dicionario y aportes tecnicos: 
+
+-UTF-8 → Soporte para acentos y caracteres especiales.
+
+-viewport → Responsividad (funciona bien en celular o tablet).
+
+-stylesheet → Aplica estilos visuales del archivo configuracion.css.
+
+-script (módulo) → Importa lógica de JavaScript desde seleccionpais.js
+
+controllers/Posicionamiento.js:
+    document.addEventListener("DOMContentLoaded", () => {}

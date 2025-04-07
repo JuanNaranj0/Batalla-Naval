@@ -12,6 +12,10 @@
     <h1>TABLERO DE POSICIONAMIENTO</h1>
 
     <div class="configuracion">
+        <!-- 
+            selector con etiquet select (te permite seleccionar entre un grupo de opciones)
+            cada accion tiene un valor, y el valor es el número para el tamaño del tablero
+        -->
         <label for="dimension">Selecciona el tamaño del tablero:</label>
         <select id="dimension">
             <option value="10">10x10</option>
@@ -26,6 +30,11 @@
             <option value="19">19x19</option>
             <option value="20">20x20</option>
         </select>
+        <!-- 
+            boton que tiene un id:
+            lo que va a hacer es seleccionar este id con código y asignarle una función para cuando ese boton
+            sea presionado y que lo obtitne desde js
+        -->
         <button id="generateBoard">Generar Tablero</button>
     </div>
 
@@ -34,13 +43,31 @@
             <h2>Barcos</h2>
             <div id="shipsContainer"></div>
         </div>
+        <!-- 
+            Los barcos no están escritos directamente en el html, sino que se manejan con codigo
+        -->
 
-        <div id="board" class="board"></div>
+        <!-- tablero
+            tambien se genera con codigo porque el tamño del tableor depende de lo que escoja la persona
+            segun el select de arriba
+        -->
+        <div id="board" class="board"></div> <!-- donde se colocan los barcos-->
+
 
         <div class="controls">
             <button id="rotate">Rotar</button>
         </div>
     </div>
+
+    <!-- 
+        Evitar que estos botones se puedan presionar hasta que el tablero esté lleno. o 
+
+        hasta que mis botes esten ubicados.
+
+        se hace con un atributo de html que se llama disabled. y lo que tendrías que hacer con el codigo es
+        que cuando los botes estén ubicados buscas el botón que tiene el id previous y le quitas la propiedad disabled
+        con javascript. 
+    -->
 
     <div class="buttons">
         <button id="previous" onclick="window.location.href='configuracion.html'">Anterior</button>

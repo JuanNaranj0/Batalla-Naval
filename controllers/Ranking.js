@@ -1,5 +1,12 @@
 import CONFIG from "../config.js";
 
+// todo en el frontend se muestra segun se envia desde el backend
+// si el backend lo tiene organizado por puntaje, pais o cualquier otra
+// asi lo muestra frontend.
+
+// para proyectos reales el frontend nunca debe encargarse de, filtrar u organizar
+// datos que esten en grandes cantidades.
+
 document.addEventListener("DOMContentLoaded", async () => {
     try {
         console.log("Obteniendo datos del ranking...");
