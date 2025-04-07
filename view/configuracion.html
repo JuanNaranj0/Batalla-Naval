@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
+<head> <!-- configuracion y recursos del documento-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Configuración</title>
     <link rel="stylesheet" href="styles/configuracion.css">
     <link rel="icon" type="image/jpg" href="styles/logo.jpg">
-    <script type="module" src="../controllers/seleccionpais.js"></script>
 </head>
 
 <body>
+    <!-- relleno del formulario para empezar la partida-->
     <div class="container">
         <h1 class="titulo">CONFIGURACIÓN</h1>
 
@@ -22,17 +22,20 @@
         <datalist id="lista-paises"></datalist>
 
 
-        <label for="ciudad">Ciudad:</label>
-        <input type="text" id="ciudad" name="ciudad" placeholder="Escribe tu ciudad" list="lista-ciudades">
-        <datalist id="lista-ciudades"></datalist>
-
-
-
-        <div class="buttons">
-            <button id="jugar" onclick="window.location.href='Posicionamiento.html'">Continuar</button>
+        <div class="buttons"><!--boton que inicia partida y nos manda para  el posicionamiento.html -->
+            <button id="jugar">Continuar</button>
             <button onclick="window.location.href='menuinicial.html'">Volver</button>
         </div>
     </div>
+    <!-- 
+        Si el archivo de html no tiene una etiqueta script, no hace nada. porque el script es el que 
+        inyecta el código al html.
+
+        // manejador de formulario, que va a tomar los campos y los va a guardar en el local storage.
+        local voy a enontrar usuario, pais y ciudad
+
+    -->
+    <script src="../controllers/form.js"></script>
 </body>
 
 </html>
